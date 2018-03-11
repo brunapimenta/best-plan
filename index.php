@@ -52,6 +52,11 @@
         <script>
             $(document).ready(function() {
                 getAllBroadbands();
+
+                $('#linkTryAgain').off('click').on('click', function(e) {
+                    e.preventDefault();
+                    getAllBroadbands();
+                });
             });
 
             function getAllBroadbands() {
@@ -65,7 +70,7 @@
                     })
                     .fail(function() {
                         $('.progress').fadeOut(function() {
-                            $('#pricingDiv').html('<div class="alert alert-danger text-center" role="alert">Oops! Something went wrong :(</div>');
+                            $('#pricingDiv').html('<div class="alert alert-danger text-center" role="alert">Oops! Something went wrong :(<br>You can try it again, just <a id="linkTryAgain" href="#">click here</a>.</div>');
                         });
                     });
                 });
@@ -85,9 +90,11 @@
                                         html += 'R$' + broadband.price;
                                         html += '<small class="text-muted">/ mo</small>';
                                     html += '</h1>';
-                                    html += '<ul class="list-unstyled mt-3 mb-4">';
-                                        html += '<li>' + broadband.bundles.join('</li><li>') + '</li>';
-                                    html += '</ul>';
+                                    if (broadband.items.length > 1) {
+                                        html += '<ul class="list-unstyled mt-3 mb-4">';
+                                            html += '<li>' + broadband.items.join('</li><li>') + '</li>';
+                                        html += '</ul>';
+                                    }
                                     // <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
                                 html += '</div>';
                             html += '</div>';

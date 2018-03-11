@@ -1,6 +1,20 @@
 <?php
 
 use Phalcon\Mvc\Micro;
+use Phalcon\Loader;
+
+// Creates the autoloader
+$loader = new Loader();
+
+// Register some namespaces
+$loader->registerNamespaces(
+    [
+       'BestPlan' => 'vendor/'
+    ]
+);
+
+// Register autoloader
+$loader->register();
 
 $app = new Micro();
 
@@ -9,29 +23,8 @@ $app->get(
     '/list-all-broadband',
     function () {
         // Operation to fetch all the broadbands
-        $broadbands = [
-            [
-                'title' => 'Test1',
-                'price' => '60',
-                'bundles' => ['A', 'B', 'C']
-            ],
-            [
-                'title' => 'Test2',
-                'price' => '15',
-                'bundles' => ['C', 'D', 'E']
-            ],
-            [
-                'title' => 'Test3',
-                'price' => '23',
-                'bundles' => ['A', 'E', 'C']
-            ],
-            [
-                'title' => 'Test4',
-                'price' => '60',
-                'bundles' => ['D', 'B', 'C']
-            ]
-        ];
-        echo json_encode($broadbands);
+        $objBroadband = new BestPlan\Broadbands();
+        echo json_encode($objBroadband->getAll());
     }
 );
 
