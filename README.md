@@ -9,5 +9,5 @@ O projeto busca todos os itens possíveis para um pacote e lista as melhores com
 ## Como executar
 Para rodar o projeto é necessário um servidor Apache (Wamp, Xampp), PHP 5 ou mais e a extensão para o framework Phalcon instalada e habilitada ([Instalação Wamp](https://docs.phalconphp.com/uk/3.3/webserver-wamp) ou [Instalação Xampp](https://docs.phalconphp.com/uk/3.3/webserver-xampp)).
 
-## Autor
+## Autora
 Bruna Pimenta

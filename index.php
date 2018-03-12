@@ -29,7 +29,7 @@
 
         <div class="container">
             <div class="progress" style="display: none;">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
             </div>
 
             <div id="pricingDiv"></div>
@@ -63,7 +63,7 @@
                 $('.progress').fadeIn(function() {
                     $.ajax({
                         url: 'api/list-all-broadband',
-                        dataType: 'json',
+                        dataType: 'json'
                     })
                     .done(function(broadbands) {
                         listAllBroadbands(broadbands);
@@ -120,7 +120,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <h5>Created by</h5>
+                        <p>Bruna Pimenta</p>
+                        <h5>Repository</h5>
+                        <a href="https://github.com/brunapimenta/best-plan" target="_blank">https://github.com/brunapimenta/best-plan</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
